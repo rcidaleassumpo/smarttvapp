@@ -1,0 +1,29 @@
+<div class="ui grid container">
+  <div class="eight wide column">
+    <table class="ui collapsing celled table">
+      <thead>
+        <tr>
+          <th colspan="5">
+            <h1 class="center aligned">Movies</h1>
+          </th>
+          <tr>
+            <th>Title</th>
+            <th>Id</th>
+            <th>channel</th>
+            <th>date</th>
+            <th>hourStart</th>
+          </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{movie.id}}</td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.channel}}</td>
+          <td>{{movie.date}}</td>
+          <td>{{movie.hourStart}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
