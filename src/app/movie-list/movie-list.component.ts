@@ -10,6 +10,7 @@ import { MovieService } from '../service/movie.service';
 export class MovieListComponent implements OnInit {
   
   private movies: any;
+  messageFromMovieList:string = 'Hello Man'
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
