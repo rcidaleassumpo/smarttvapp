@@ -11,7 +11,6 @@ import { TVChannel } from '../models/channel';
 export class MovieService {
 
   constructor(private http:HttpClient) { }
-  channels:TVChannel
   filterBy(key,val){
     const data = this.http.get('assets/tvprograms.json').pipe(
       map((res: Array<TVProgram>) => 
@@ -20,7 +19,7 @@ export class MovieService {
     )
     
     return data.pipe(
-      map((res: TVProgram[]) => this.channels = new TVChannel(res, val))
+      map((res: TVProgram[]) => new TVChannel(res, val))
     )    
     // get the hourStart and Title of each obj in the array and create a new Object with that info.
   }

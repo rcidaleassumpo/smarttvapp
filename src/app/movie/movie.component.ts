@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TVChannel } from '../models/channel';
 
 @Component({
   selector: 'app-movie',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
+  @Input() channel:TVChannel;
   constructor() { }
 
   ngOnInit() {

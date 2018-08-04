@@ -17,8 +17,9 @@ export class MovieListComponent implements OnInit {
     this.getChannels()
   }
 
+
   getChannels(){
-    this.movieService.filterBy('channel','HBOPLUS')
+    this.movieService.filterBy('channel','HBO')
       .subscribe(res => this.channels = res)
   }
 

@@ -1,13 +1,13 @@
 import {TVProgram} from './tvprogram'
+import { Listing } from "./listing";
 
 export class TVChannel {
 
     channel: string;
-    title: string[];
-    hourStart: string[]
+    listingsOfChannel:Listing[]
     constructor(public channels: TVProgram[], public channelName:string){
-        this.hourStart = channels.map(item => item['hourStart'])
-        this.title = channels.map(item => item['title'])
+        this.listingsOfChannel = channels.map((item:TVProgram) => 
+            new Listing(item['title'], item['hourStart']))
         this.channel = channelName 
     }
 }

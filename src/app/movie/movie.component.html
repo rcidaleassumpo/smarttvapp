@@ -1,0 +1,6 @@
+<div class="ui grid segment ">
+  <div class="four wide column">
+    {{channel.channel}}
+    <p *ngFor="let item of channel.listingsOfChannel">{{item.title}} - {{item.hourStart}}</p>
+  </div>
+</div>
