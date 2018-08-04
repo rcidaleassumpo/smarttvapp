@@ -11,16 +11,21 @@ import { TVChannel } from '../models/channel';
 export class MovieService {
 
   constructor(private http:HttpClient) { }
-  filterBy(key,val){
+  filterBy(key,val, day){
+    let today = day
     const data = this.http.get('assets/tvprograms.json').pipe(
       map((res: Array<TVProgram>) => 
-        res.filter(res => res[key] === val)
+        res.filter(res => res[key] === val  && new Date(res['date']).getDate() === today)
       )
     )
     
-    return data.pipe(
-      map((res: TVProgram[]) => new TVChannel(res, val))
-    )    
+    return  this.getChannels(data, val)  
     // get the hourStart and Title of each obj in the array and create a new Object with that info.
+  }
+
+  getChannels(data, val){
+    return data.pipe(
+      map((res: TVProgram[]) => new TVChannel(res,val))
+    ) 
   }
 }

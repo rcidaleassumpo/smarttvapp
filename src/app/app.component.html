@@ -1,4 +1,11 @@
-<div class="ui container">        
-    <app-navbar></app-navbar>
-    <app-movie-list></app-movie-list>
+<div class="ui grid container">
+    <div class="row">
+        <app-navbar class="column"></app-navbar>
+    </div>
+    <div class="row">
+        <app-calendar  (eventClicked)="childEventClicked($event)" class="column"></app-calendar>
+    </div>
+    <div class="row">
+        <app-movie-list [todayDate]="clickedEvent" class="column"></app-movie-list>
+    </div>
 </div>

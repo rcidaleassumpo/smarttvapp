@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieService } from './service/movie.service';
 import { MovieComponent } from './movie/movie.component';
+import { CalendarComponent } from './calendar/calendar.component';
+
 
 @NgModule({
   declarations: [
@@ -14,10 +16,11 @@ import { MovieComponent } from './movie/movie.component';
     NavbarComponent,
     MovieListComponent,
     MovieComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule  
+    HttpClientModule,
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]

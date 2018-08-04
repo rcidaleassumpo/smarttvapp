@@ -8,11 +8,17 @@ import { DataService } from './service/data.service';
 })
 export class AppComponent implements OnInit{
   
-  constructor(private service: DataService){
+  public clickedEvent: number;
 
+  constructor(private service: DataService){
+    
   }
 
   ngOnInit(){
+  }
+
+  childEventClicked(date: number) {
+    this.clickedEvent = date;
   }
   
 }

@@ -2,7 +2,6 @@ export class TVProgram {
     public id:number;
     public title:string;
     public channel:string;
-    public date:string;
-    public hourStart:string;
+    public date:any;
     public categorie:string;
 }
