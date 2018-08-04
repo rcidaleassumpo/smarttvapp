@@ -14,7 +14,7 @@ export class CalendarComponent implements OnInit {
   constructor() { }
   
   ngOnInit() {
-    
+    this.setTodayDate()
   }
 
   setTodayDate(){
