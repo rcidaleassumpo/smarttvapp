@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  @Input() movie: string ;
   constructor() { }
 
   ngOnInit() {

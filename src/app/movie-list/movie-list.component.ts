@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../service/movie.service';
+import { TVChannel } from '../models/channel';
 
 
 @Component({
@@ -9,16 +10,19 @@ import { MovieService } from '../service/movie.service';
 })
 export class MovieListComponent implements OnInit {
   
-  private movies: any;
-  messageFromMovieList:string = 'Hello Man'
+  channels:TVChannel;
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movies = this.getMovies()
+    this.getChannels()
   }
 
-  getMovies(){
-    return this.movieService.getMovies('categorie')
+  getChannels(){
+    this.movieService.filterBy('channel','HBOPLUS')
+      .subscribe(res => this.channels = res)
   }
+
+
+
   
 }
