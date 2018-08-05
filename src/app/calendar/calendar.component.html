@@ -1,6 +1,3 @@
-<button class="ui button"  (click)="setTodayDate()">
-  Today
-</button>
-<button class="ui button"  (click)="setTomorrowDate()">
-  Tomorrow
+<button class="ui button" *ngFor="let day of calendarOnDisplay" (click)="getChannels(day-1)">
+  {{getDate(day)}}
 </button>

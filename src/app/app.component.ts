@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from './service/data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { TVChannel } from './models/channel';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +8,16 @@ import { DataService } from './service/data.service';
 })
 export class AppComponent implements OnInit{
   
-  public clickedEvent: number;
-
-  constructor(private service: DataService){
+  message:TVChannel[]
+  constructor(){
     
   }
 
   ngOnInit(){
   }
 
-  childEventClicked(date: number) {
-    this.clickedEvent = date;
+  receiveMessage($event) {
+    this.message = $event
   }
   
 }
