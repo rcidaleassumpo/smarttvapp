@@ -3,9 +3,9 @@
         <app-navbar class="column"></app-navbar>
     </div>
     <div class="row">
-        <app-calendar (messageEvent)="receiveMessage($event)"  class="column"></app-calendar>
+        <app-calendar (sendingDate)="receiveMessage($event)"  class="column"></app-calendar>
     </div>
     <div class="row">
-        <app-movie-list class="column" [receiveDataFromParent]='message'></app-movie-list>
+        <app-movie-list class="column" [channels]='message'></app-movie-list>
     </div>
 </div>

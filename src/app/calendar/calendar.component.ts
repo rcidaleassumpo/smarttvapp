@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MovieService } from '../service/movie.service'
-import { TVChannel } from '../models/channel';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-calendar',
@@ -15,25 +14,21 @@ export class CalendarComponent implements OnInit {
   calendarOfDays:number[] =  this.getDaysInMonth(this.month,this.year)
   todaysIndex:number = this.calendarOfDays.indexOf(this.today)
   calendarOnDisplay:number[] = this.calendarOfDays.slice(this.todaysIndex,this.todaysIndex+5)
-  @Output() messageEvent = new EventEmitter();
-
-
+  
+  @Output() sendingDate = new EventEmitter();
+  channels;
   constructor(private movieService: MovieService) { }
   
   ngOnInit() {
-    this.getChannels(this.today)
   }
 
-  getChannels(day){
-    let channels = ['HBOPLUS', 'HBO','HBOFamily','Telecine']
-    let holder:TVChannel[] = []
-    for(let channel of channels){
-      this.movieService.filterBy('channel',channel,day)
+  getChannels(date){
+    let _this = this
+    _this.movieService.getChannels(date)
       .subscribe(function(res){
-        holder.push(res)
+        _this.channels = res;
+        _this.sendingDate.emit(_this.channels)  
       })
-    }
-    this.messageEvent.emit(holder)
   }
   
   getDate(date){

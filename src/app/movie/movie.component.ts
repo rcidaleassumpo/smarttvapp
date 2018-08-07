@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { TVChannel } from '../models/channel';
 
 @Component({
@@ -7,7 +7,6 @@ import { TVChannel } from '../models/channel';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-
   @Input() channel:TVChannel;
   constructor() { }
 
